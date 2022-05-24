@@ -28,3 +28,7 @@ def admin_home(request):
     if not request.user.is_authenticated:
         return redirect('admin_login')
     return render(request, 'admin_home.html')
+
+def Logout(request):
+    logout(request)
+    return redirect(index)
