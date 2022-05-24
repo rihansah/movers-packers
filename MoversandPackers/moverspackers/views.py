@@ -32,3 +32,8 @@ def admin_home(request):
 def Logout(request):
     logout(request)
     return redirect(index)
+
+def add_services(request):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    return render(request, 'add_services.html')

@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin_login/', admin_login, name="admin_login"),
     path('admin_home/', admin_home, name="admin_home"),
     path('logout/', Logout, name="logout"),
+    path('add_services/', add_services, name="add_services"),
 ]
