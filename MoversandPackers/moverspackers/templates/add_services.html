@@ -32,5 +32,23 @@
 
 
                 </div>
+                <input type="submit" value="Submit" class="m-2 px-3 btn btn-primary">
+            </form>
+        </div>
+    </div>
+<div>
+
+{%if error == "no" %}
+<script>
+    alert('services has been added');
+    window.location=('{%url 'manage_services' %}');
+</script>
+{% endif %}
+{% if error == "yes" %}
+<script>
+    alert('someting went wrong, Please Try Again...')
+</script>
+{% endif %}
+
 
 {% endblock %}

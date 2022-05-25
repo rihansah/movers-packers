@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, logout,login
 
 
 # Create your views here.
+from .models import *
 def index(request):
     return render(request, 'index.html')
 
@@ -36,4 +37,15 @@ def Logout(request):
 def add_services(request):
     if not request.user.is_authenticated:
         return redirect('admin_login')
-    return render(request, 'add_services.html')
+    error = ""
+    if request.method =="POST":
+        st= request.POST['servicetitle']
+        des= request.POST['description']
+        image= request.FILES['image']
+        try:
+            Services.objects.create(title=st,description=des, image=image)
+            error="no"
+        except:
+            error="yes"
+    
+    return render(request, 'add_services.html',locals())
