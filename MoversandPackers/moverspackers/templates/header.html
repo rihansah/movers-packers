@@ -28,7 +28,7 @@
           <a class="nav-link {% if request.path == '/' %} active {% endif %}" href="{%url 'index' %}"><i class="fa fa-home"></i>Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {% if request.path == '/registration/' %} active {% endif %}" href="#">Employee SignUp</a>
+            <a class="nav-link {% if request.path == '/registration/' %} active {% endif %}" href="{% url 'services' %}">Services</a>
         </li>
         <li class="nav-item">
             <a class="nav-link {% if request.path == '/emp_login/' %} active {% endif %}" href="#"><i class="fas fa-sign-in-alt"></i>Employee Login</a>
