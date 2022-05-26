@@ -31,10 +31,10 @@
             <a class="nav-link {% if request.path == '/registration/' %} active {% endif %}" href="{% url 'services' %}">Services</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {% if request.path == '/emp_login/' %} active {% endif %}" href="#"><i class="fas fa-sign-in-alt"></i>Employee Login</a>
+            <a class="nav-link {% if request.path == '/emp_login/' %} active {% endif %}" href="{% url 'about' %}"><i class="fas fa-sign-in-alt"></i>About</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'admin_login' %}"><i class="fas fa-sign-in-alt"></i>Admin Login</a>
+            <a class="nav-link" href="{% url 'request_quote' %}"><i class="fas fa-sign-in-alt"></i>Request Quote</a>
         </li>
       </ul>
     </div>

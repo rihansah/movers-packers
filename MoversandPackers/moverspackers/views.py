@@ -94,3 +94,21 @@ def delete_service(request,pid) :
 def services(request):
     services = Services.objects.all()
     return render(request, 'services.html',locals())
+
+
+def about(request):
+    return render(request, 'about.html')
+
+def request_quote(request):
+    error = ""
+    if request.method =="POST":
+        st= request.POST['servicetitle']
+        des= request.POST['description']
+        image= request.FILES['image']
+        try:
+            Services.objects.create(title=st,description=des, image=image)
+            error="no"
+        except:
+            error="yes"
+    
+    return render(request, 'request_quote.html',locals())
