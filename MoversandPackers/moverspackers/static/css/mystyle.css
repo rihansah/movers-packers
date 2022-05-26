@@ -64,6 +64,8 @@ line-height: 1;
 .about-box img{
     width:100%;
     transform:translateY(30px) translate(-30px);
+}
 
-
+#contact{
+    background: url("/static/images/bg.jpg");
 }
