@@ -39,12 +39,4 @@
     alert('services has been added');
     window.location=('{%url 'manage_services' %}');
 </script>
-{% endif %}
-{% if error == "yes" %}
-<script>
-    alert('someting went wrong, Please Try Again...')
-</script>
-{% endif %}
 
-
-{% endblock %}

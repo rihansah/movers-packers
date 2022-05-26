@@ -11,6 +11,7 @@ class SiteUser(models.Model):
     mobile = models.CharField(max_length=15, null=True)
     location = models.CharField(max_length=200, null=True)
     shiftingloc = models.CharField(max_length=200, null=True)
+    shiftingdate = models.DateField(null=True)
     briefitems = models.CharField(max_length=100, null=True)
     items = models.CharField(max_length=5000, null=True)
     requestdate = models.DateField(null=True)
@@ -18,7 +19,7 @@ class SiteUser(models.Model):
     status = models.CharField(max_length=30, null= True)
     updationdate = models.DateField(null=True)
     def __str__(self):
-        return self.user.username
+        return self.name
 
 class Services(models.Model):
     title = models.CharField(max_length=200, null=True)
