@@ -1,6 +1,7 @@
 from asyncio import start_server
 from distutils.log import error
 from math import remainder
+from threading import local
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, logout,login
 
@@ -157,3 +158,18 @@ def delete_booking(request,pid) :
     booking=SiteUser.objects.get(id=pid)
     booking.delete()
     return redirect('old_booking')
+
+def contact(request):
+    error = ""
+    if request.method == 'POST':
+        n = request.POST['fullname']
+        c = request.POST['contact']
+        e = request.POST['email']
+        s = request.POST['subject']
+        m = request.POST['message']
+        try:
+            Contact.objects.create(name=n,contact=c,emailid=e,subject=s,message=m,mdate=date.today(),isread="no")
+            error = "no"
+        except:
+            error="yes"
+    return render(request, 'contact.html',locals())
