@@ -96,8 +96,8 @@
 
 {%if error == "no" %}
 <script>
-    alert('services has been added');
-    window.location=('{%url 'manage_services' %}');
+    alert('Your Request Has Been Send. We will contact you soon.');
+    window.location=('{%url 'request_quote' %}');
 </script>
 {% endif %}
 {% if error == "yes" %}

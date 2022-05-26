@@ -1,6 +1,7 @@
 {% extends 'admin_base.html' %}
 
 {% block main %}
+<!--For managing services-->
 <div class="card shadow m-2">
     <div clsss="card-body">
         <h5 class="p-2 text-danger" style="border-bottom : 2px solid orange">Manages Services</h5>
@@ -39,12 +40,4 @@
     alert('services has been added');
     window.location=('{%url 'manage_services' %}');
 </script>
-{% endif %}
-{% if error == "yes" %}
-<script>
-    alert('someting went wrong, Please Try Again...')
-</script>
-{% endif %}
 
-
-{% endblock %}
