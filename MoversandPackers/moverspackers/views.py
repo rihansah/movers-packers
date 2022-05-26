@@ -173,3 +173,26 @@ def contact(request):
         except:
             error="yes"
     return render(request, 'contact.html',locals())
+
+
+def unread_queries(request):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    contact = Contact.objects.filter(isread="no")
+    
+    return render(request, 'unread_queries.html',locals())
+
+def read_queries(request):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    contact = Contact.objects.filter(isread="yes")
+    
+    return render(request, 'read_queries.html',locals())
+
+def view_queries(request,pid):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    contact = Contact.objects.get(id=pid)
+    contact.isread="yes"
+    contact.save()
+    return render(request, 'view_queries.html',locals())
