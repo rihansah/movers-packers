@@ -210,10 +210,25 @@ def delete_query(request,pid) :
     return redirect('read_queries')
 
 def search(request):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    sd = None
     if request.method == 'POST':
         sd = request.POST['searchdata']
     try:
         booking = SiteUser.objects.filter(Q(name=sd) | Q(mobile=sd))
     except:
         booking = ""
+    print(booking)
     return render(request, 'search.html',locals())
+
+def betweendate_bookingreport(request):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+
+    if request.method == 'POST':
+        fd = request.POST['fromdate']
+        td = request.POST['todate']
+        booking = SiteUser.objects.filter(Q(requestdate__gte=fd) & Q(requestdate__lte=td))
+        return render(request, 'bookingbtwdates.html',locals())
+    return render(request, 'betweendate_bookingreport.html',locals())
