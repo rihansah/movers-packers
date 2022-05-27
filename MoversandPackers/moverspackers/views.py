@@ -232,3 +232,34 @@ def betweendate_bookingreport(request):
         booking = SiteUser.objects.filter(Q(requestdate__gte=fd) & Q(requestdate__lte=td))
         return render(request, 'bookingbtwdates.html',locals())
     return render(request, 'betweendate_bookingreport.html',locals())
+
+
+def betweendate_contactreport(request):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+
+    if request.method == 'POST':
+        fd = request.POST['fromdate']
+        td = request.POST['todate']
+        contact = Contact.objects.filter(Q(mdate__gte=fd) & Q(mdate__lte=td))
+        return render(request, 'contactbtwdates.html',locals())
+    return render(request, 'betweendate_contactreport.html',locals())
+
+def change_password(request):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    error=""
+    if request.method=="POST":
+        o=request.POST['currentpassword']
+        n=request.POST['newpassword']
+        try:
+            u=User.objects.get(id=request.user.id)
+            if u.check_password(o):
+                u.set_password(n)
+                u.save()
+                error="no"
+            else:
+                error="not"
+        except:
+            error="yes"
+    return render(request,'change_password.html',locals())

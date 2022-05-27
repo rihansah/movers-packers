@@ -42,7 +42,8 @@ urlpatterns = [
     path('view_queries/<int:pid>', view_queries, name="view_queries"),
     path('delete_query/<int:pid>', delete_query, name="delete_query"),
     path('search/', search, name="search"),
-    #path('betweendate_bookingreport/', betweendate_bookingreport, name="betweendate_bookingreport"),
+    path('change_password/', change_password, name="change_password"),
     path('betweendate_bookingreport/', betweendate_bookingreport, name="betweendate_bookingreport"),
+    path('betweendate_contactreport/', betweendate_contactreport, name="betweendate_contactreport"),
     
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
