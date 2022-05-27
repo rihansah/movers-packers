@@ -24,6 +24,7 @@
                        <td>{{i.emailid}}</td>
                        <td>{{i.contact}}</td>
                        <td><a href="{% url 'view_queries' i.id%}"  style="width:80px">View Details</a>
+                        | <a href="{% url 'delete_query' i.id%}"  class="text-danger" onclick="return confirm('Are you Sure?')">Delete</a>
                     </td>
                    </tr>
                    {% endfor %}
